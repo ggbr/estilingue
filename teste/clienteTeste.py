@@ -15,12 +15,11 @@ sock.connect((host, port))
 try:
     while True:
         message = str(input())
+        message = message
         print('Enviando ...')
-        sock.sendall(b'message ' )
-        
+        sock.send(message.encode('ascii'))
         print('Menssagem enviada ...')
         
-    
 
 except:
     print('Você foi desconectado do sevidor.')
