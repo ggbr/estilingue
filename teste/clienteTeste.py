@@ -8,7 +8,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 host  = ''
 
-port =  3322
+port =  2211
 print('connecting to  port ' , port)
 sock.connect((host, port))
 

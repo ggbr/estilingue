@@ -14,7 +14,7 @@ class Escuta:
         print(self._port , "se conectou")
         try:
             while True:
-                print('Escutando' + addr + " ...")
+                print('Escutando...', addr)
                 data = c.recv(1024)
                 if not data: break
                 print(data)
