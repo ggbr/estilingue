@@ -11,7 +11,7 @@ class Escuta:
 
     def clientHandler(self,c, addr):
 
-        print(addr, "is Connected")
+        print(self._port , "se conectou")
         try:
             while True:
                 print('Escutando' + addr + " ...")
@@ -19,7 +19,7 @@ class Escuta:
                 if not data: break
                 print(data)
         except:
-            print("Clinte se desconectou ...")
+            print("Clinte se desconectou  da porta: ", self._port)
             c.close()
 
     def run(self):

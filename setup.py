@@ -1,24 +1,28 @@
 from escuta import Escuta
 
 from threading import Thread
+import _thread
 
-
-listaPortas = [3311,3322,3333]
+listaPortas = [(3311),(3322),(3333)]
 
 listaEscua = []
 
 
 
-def tredingEscuta(port):
+def controle():
+    pass
 
-    print('Iniciando porta  ' , port)
-        
+
+def tredingEscuta(porta):
     escuta = Escuta(porta)
     escuta.run()
-        
     listaEscua.append(escuta)
 
 for porta in listaPortas:
-    t = Thread(target=tredingEscuta,  args=(porta) )
+    print(porta)
+    t = _thread.start_new_thread(tredingEscuta, (porta, )  )
     listaEscua.append(t)
-    t.start()
+    #t.start()
+
+while 1:
+   pass
