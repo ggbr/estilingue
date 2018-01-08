@@ -2,10 +2,10 @@ from socket import *
 from threading import Thread
 
 class Escuta:
-    def __init__(self):
+    def __init__(self,port):
         self._clientes = []
         self._host = ''
-        self._port = 1313
+        self._port = port
         self._trds = []
 
 
@@ -14,14 +14,13 @@ class Escuta:
         print(addr, "is Connected")
         try:
             while True:
+                print('Escutando' + addr + " ...")
                 data = c.recv(1024)
-                data = str(data[:-1])
-                if (data == b'ls'):
-                    print('comoando aceito')
-                else:
-                    print(data, ' Não encontrado')
+                if not data: break
+                print(data)
         except:
-            print("Error. Data not sent to all clients.")
+            print("Clinte se desconectou ...")
+            c.close()
 
     def run(self):
         s = socket(AF_INET, SOCK_STREAM)
